@@ -1,0 +1,30 @@
+Serial Read/Write Test Program
+------------------------------
+
+"sercat" is a test program for reading from or writing to a serial port.
+It allows to configure baud rate and hardware flow control in one shot,
+without using e.g. stty.
+
+Usage:
+
+    sercat: [options] <dev>
+
+    Valid options are:
+	-h, --help       Display this usage information
+	-f, --hwflow     Enable hardware flow control (RTS/CTS)
+	-n, --noflow     Disable hardware flow control
+	-r, --read       Read mode (default)
+	-s, --speed      Serial speed
+	-v, --verbose    Enable verbose mode
+	-w, --write      Write mode
+
+
+Examples:
+
+  * Send a short message to ttyS0, using hardware flow control:
+
+	echo Hello | sercat --write --hwflow /dev/ttyS0
+
+  * Read a message from ttyS0:
+
+  	sercat /dev/ttyS0
